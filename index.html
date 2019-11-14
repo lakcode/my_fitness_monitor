@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" , content ="ie=chrome" />
+    <title>p5.js example</title>
+    <style> body {padding: 0; margin: 0;} </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="p5.js"></script>
+    
+    <script src="p5.dom.min.js"></script>
+    <script src="myhealth_v2.js"></script>
+    <script src="getdata.js"></script>
+    <script src="calories_chart.js"></script>
+    <script src="steps_taken.js"></script>
+    <script src="heartrate.js"></script>
+    <script src="sleep_v2.js"></script> 
+    <script src="stepvssleep.js"></script>
+    <script src="Chart.bundle.js"></script>
+    <script src="moment.js"></script>
+
+      
+  </head>
+  <body>
+      <div id="sketch-holder">
+          <!-- Our sketch will go here! -->
+          
+        </div>  
+    
+       <div class ="col-md-8 offset-md-3 my-5">
+        <div class ="card">
+          <div class="card-body">
+            
+           </div>
+           <div class ="card-body">
+              <canvas id="Chart1" ></canvas>
+              <canvas id="Chart2" ></canvas>
+              <canvas id="Chart3" ></canvas>
+              <canvas id="Chart4" ></canvas>
+           </div>
+      </div>
+     
+      <script>
+        moment().format();
+
+      </script>
+</body>
+</html>
