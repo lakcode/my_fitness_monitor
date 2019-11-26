@@ -37,8 +37,8 @@ async function stepVssleepduration() {
                 
                 label: 'Distance Walked',
                 data: myData.distscore,
-                borderColor: 'rgba(100, 199, 0, 1)',
-                backgroundColor: 'rgba(100, 199, 0, 0.5)',
+                borderColor: 'rgba(0, 20, 0, 1)',
+                backgroundColor: 'rgba(0, 20, 0, 0.5)',
                 borderWidth: 1,
                 fill:false
             },
@@ -46,10 +46,11 @@ async function stepVssleepduration() {
                                   
                 label: 'sleep hrs',
                 data: myData.sleephrs,
-                borderColor: 'rgba(0, 0, 180, 1)',
-                backgroundColor: 'rgba(0, 0,180, 0.5)',
+                borderColor: 'rgba(0, 100, 100, 1)',
+                backgroundColor: 'rgba(0,100,100, 0.5)',
                 borderWidth: 1,
-                fill:false
+                fill:false,
+                type:'bar'
               }
               
         ]
@@ -58,7 +59,7 @@ async function stepVssleepduration() {
             responsive: true,
             title: {
                 display: true,
-                text: 'dist score and Sleep'
+                text: 'distance score(kms) and Sleep(hrs)'
             },
             tooltips: {
                 mode: 'index',

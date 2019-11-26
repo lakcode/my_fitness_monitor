@@ -19,6 +19,9 @@ let data;
 let drawbutton;
 let canvas;
 let appName;
+let myChart = null;
+let isDataGot = false;
+let myData = null;
 
 // initialise variables for charts
 const xlabels = [];
@@ -36,7 +39,7 @@ function setup() {
     canvas.style('z-index','-1');       // to make canvas go in the background
     canvas.style('display', 'block');
     canvas.background('light orange');
-    // Move the canvas so it’s inside our <div id="sketch-holder">.
+    // Move the canvas so it’s inside  <div id="sketch-holder">.
     canvas.parent('sketch-holder');
 
     // create buttons as objects of class
@@ -53,10 +56,10 @@ function draw() {
     background(200);
     image(img,0,0);
     appName= createSpan('MY HEALTH MONITOR');
-    appName.position(100,50); 
+    appName.position(30,30); 
     appName.style('font-size', '24px');
     appName.style('color','blue');
-    
+   // canvas.clear();
     // call functions on class objects
     caloriesMonitorButton.show();
     stepsMonitorButton.show();

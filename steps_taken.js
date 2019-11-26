@@ -1,12 +1,15 @@
 // to plot Steps  charts
+
+//let isDataGot = false;
+//let myData = null;
 async function steps() {
    
-    //canvas.redraw();
-    const data = await getData();
-    console.log (data);
+    canvas.clear();
+   // const myData = await getdata();
+    console.log (myData);
 /*
     const newLocal = "Calories";
-    let caloriesBurnt = data.getColumn(newLocal);
+    let caloriesBurnt = myData.getColumn(newLocal);
     // the min and max functions tell us what the lowest
     // and highest values of the array are
     let minCal = min(caloriesBurnt);
@@ -14,17 +17,23 @@ async function steps() {
     console.log(minCal);
     console.log(maxCal);
 */
+    if(!isDataGot)
+    {
+        myData = await getData();
+        isDataGot = true;
+    }
+
     console.log("steps taken");
     const ctx = document.getElementById('Chart1').getContext('2d');
    
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: data.xlabels,
+            labels: myData.xlabels,
             datasets: [{
                                   
                 label: 'steps taken',
-                data: data.stepstaken,
+                data: myData.stepstaken,
                 borderColor: 'rgba(100, 199, 0, 1)',
                 backgroundColor: 'rgba(100, 199, 0, 0.5)',
                 borderWidth: 1
@@ -64,6 +73,10 @@ async function steps() {
                     scaleLabel: {
                         display: true,
                         labelString: 'Value'
+                    },
+                  
+                    ticks: {
+                        min:200
                     }
                 }]
             }
