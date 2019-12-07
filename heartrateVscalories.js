@@ -1,8 +1,11 @@
-// to plot sleep duration
-async function sleepduration() {
+// to plot Calories and heartrate correlation charts
+async function heartrateVscalories() {
     canvas.clear();
-    //const data = await getData();
-    //const myChart;
+    background(255);
+    //createCanvas(400,400); 
+    //canvas.position(0,0);
+   // const data = await getData();
+    
     console.log (data);
 /*
     const newLocal = "Calories";
@@ -14,37 +17,49 @@ async function sleepduration() {
     console.log(minCal);
     console.log(maxCal);
 */
-    console.log("sleep chart");
-
     
+    //console.log("Calories chart");
     if(!isDataGot)
     {
         myData = await getData();
         isDataGot = true;
     }
+   
+     
     const ctx = document.getElementById('Chart1').getContext('2d');
-    //updateConfigAsNewObject(myChart);
+      
      const myChart = new Chart(ctx, {
         
         type: 'bar',
         data: {
             labels: myData.xlabels,
             datasets: [{
+                
+                label: 'calories',
+                data: myData.calburnt,
+                borderColor: 'rgba(0, 20, 0, 1)',
+                backgroundColor: 'rgba(0, 20, 0, 0.5)',
+                borderWidth: 1,
+                fill:false
+            },
+            {
                                   
-                label: 'sleep hrs',
-                data: myData.sleephrs,
-                borderColor: 'rgba(0, 0, 200, 1)',
-                backgroundColor: 'rgba(0, 0,200, 0.5)',
-                borderWidth: 1
+                label: 'heartrate',
+                data: myData.heartrate,
+                borderColor: 'rgba(200, 0, 0, 1)',
+                backgroundColor: 'rgba(0,100,100, 0.5)',
+                borderWidth: 1,
+                fill:false,
+                type:'line'
               }
-        
+              
         ]
         },
         options: {
             responsive: true,
             title: {
                 display: true,
-                text: 'sleep duration',
+                text: 'Heart rate and Calories burnt',
                 mode: 'index',
                 intersect: false,
             },
@@ -69,42 +84,21 @@ async function sleepduration() {
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'sleep(hrs)'
+                        labelString: 'Value'
                     },
-
-                ticks: {
-                      min: 0,
-                      max: 15,
-                      stepSize: 2  
-
-                }    
+                    ticks: {
+                        beginAtZero: false,
+                        min:0,
+                        max:1800,
+                        stepSize:20
+                    }
                 }]
             }
         }
 
 
     });
-    //myChart.destroy();
-   
     
     
-}
-   
 
-function updateConfigAsNewObject(chart) {
-    chart.options = {
-        responsive: true,
-        title: {
-            display: true
-                      },
-        scales: {
-            xAxes: [{
-                display: true
-            }],
-            yAxes: [{
-                display: true
-            }]
-        }
-    };
-    chart.update();
 }

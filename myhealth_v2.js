@@ -14,6 +14,7 @@ let stepsMonitorButton;
 let heartrateMonitorButton;
 let sleeprateMonitorButton;
 let stepVssleepMonitorButton;
+let stepVscaloriesButton;
 
 let data;
 let drawbutton;
@@ -48,6 +49,7 @@ function setup() {
     heartrateMonitorButton = new heartButton("heart rate", 100, 300);
     sleeprateMonitorButton = new sleepButton("sleep hours", 100, 400);
     stepVssleepMonitorButton = new stepSleepButton("DistScore Vs Sleep", 100, 450);
+    stepVscaloriesButton = new stepCalorieButton("Heartrate Vs Calories burnt",100,500);
 
 }
 
@@ -66,6 +68,7 @@ function draw() {
     heartrateMonitorButton.show();
     sleeprateMonitorButton.show();
     stepVssleepMonitorButton.show();
+    stepVscaloriesButton.show();
     //caloriesMonitorButton.displayCalChart();
  
 
@@ -82,11 +85,7 @@ class Button {
 
     }
 
-    displayCalChart() {
-        drawbutton.mousePressed(chartIt);
-
-    }
-
+   
 }
 
 //Child class : inherit from Button parent
@@ -181,6 +180,25 @@ class stepSleepButton extends Button {
         drawbutton.style('font-size', '16px');
         drawbutton.style('color', 'white');
         drawbutton.mousePressed(stepVssleepduration);
+
+    }
+
+}
+
+//Child class : inherit from Button parent
+class stepCalorieButton extends Button {
+    constructor(name, x, y) {
+        super(name, x, y);
+
+    }
+    show() {
+        drawbutton = createButton(this.name);
+        drawbutton.position(this.x, this.y);
+        drawbutton.size(100,50);
+        drawbutton.style('background-color','green');
+        drawbutton.style('font-size', '16px');
+        drawbutton.style('color', 'white');
+        drawbutton.mousePressed(heartrateVscalories);
 
     }
 
